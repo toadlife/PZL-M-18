@@ -1675,7 +1675,7 @@ P _blad/0/_locked/9,9 0
 P _blad/0/_locked/i_count 20
 P _blad/0/_locked/j_count 18
 P _blad/0/_part_phi 0.000000000
-P _blad/0/_part_psi 3.400000095
+P _blad/0/_part_psi 2.000000000
 P _blad/0/_part_specs_eq 0
 P _blad/0/_part_specs_invis 1
 P _blad/0/_part_specs_rmod 1
@@ -4752,6 +4752,7 @@ P _body/1/_top_t2 0.000000000
 P _body/count 39
 P _engn/0/_RSC_max_pwr_ENGN 2100.000000000
 P _engn/0/_RSC_redline_ENGN 2200.000000000
+P _engn/0/_burner_inc 0.000000000
 P _engn/0/_engn_clutch_EQ 0
 P _engn/0/_engn_freewheels 0
 P _engn/0/_engn_vector_EQ 0
@@ -4759,12 +4760,13 @@ P _engn/0/_exhaust_os_xyz/0 2.900000095
 P _engn/0/_exhaust_os_xyz/1 -0.349999994
 P _engn/0/_exhaust_os_xyz/2 3.099999905
 P _engn/0/_exhaust_os_xyz/count 3
-P _engn/0/_part_psi 3.400000095
+P _engn/0/_part_psi 2.000000000
 P _engn/0/_part_the 0.000000000
 P _engn/0/_part_x 0.000000000
 P _engn/0/_part_y 0.000000000
 P _engn/0/_part_z -0.170000002
 P _engn/0/_power_max_limit 980.000000000
+P _engn/0/_thrust_max_limit 0.000000000
 P _engn/0/_type RCP_CRB
 P _engn/count 16
 P _gear/0/_axiE 0.000000000
@@ -5369,6 +5371,7 @@ P _sbrk/0/_geo/3,3,2 0.000000000
 P _sbrk/0/_geo/i_count 4
 P _sbrk/0/_geo/j_count 4
 P _sbrk/0/_geo/k_count 3
+P _sbrk/0/_hyd0123 0
 P _sbrk/0/_inn_s1 0.000000000
 P _sbrk/0/_inn_s2 1.000000000
 P _sbrk/0/_inn_t1 0.000000000
@@ -5488,6 +5491,7 @@ P _sbrk/1/_geo/3,3,2 0.000000000
 P _sbrk/1/_geo/i_count 4
 P _sbrk/1/_geo/j_count 4
 P _sbrk/1/_geo/k_count 3
+P _sbrk/1/_hyd0123 0
 P _sbrk/1/_inn_s1 0.000000000
 P _sbrk/1/_inn_s2 1.000000000
 P _sbrk/1/_inn_t1 0.000000000
@@ -5607,6 +5611,7 @@ P _sbrk/2/_geo/3,3,2 0.000000000
 P _sbrk/2/_geo/i_count 4
 P _sbrk/2/_geo/j_count 4
 P _sbrk/2/_geo/k_count 3
+P _sbrk/2/_hyd0123 0
 P _sbrk/2/_inn_s1 0.000000000
 P _sbrk/2/_inn_s2 1.000000000
 P _sbrk/2/_inn_t1 0.000000000
@@ -5726,6 +5731,7 @@ P _sbrk/3/_geo/3,3,2 0.000000000
 P _sbrk/3/_geo/i_count 4
 P _sbrk/3/_geo/j_count 4
 P _sbrk/3/_geo/k_count 3
+P _sbrk/3/_hyd0123 0
 P _sbrk/3/_inn_s1 0.000000000
 P _sbrk/3/_inn_s2 1.000000000
 P _sbrk/3/_inn_t1 0.000000000
@@ -31119,6 +31125,7 @@ P acf/_APU_ff_kgh 0.000000000
 P acf/_APU_fuel_src 0
 P acf/_APU_spooldn_time 0.000000000
 P acf/_APU_spoolup_time 0.000000000
+P acf/_AP_overspeed_prot 1
 P acf/_AShi_alpha_k 0.000000000
 P acf/_AShi_alpha_sec 0.000000000
 P acf/_AShi_beta_k 0.000000000
@@ -31148,11 +31155,15 @@ P acf/_ASlo_roll_rat 1.000000000
 P acf/_ASlo_the_V 0.000000000
 P acf/_ASlo_thedot_k 0.000000000
 P acf/_CHT_is_C 1
+P acf/_EFIS2_on_avio 1
 P acf/_EFIS_camera_xyz/0 0.000000000
 P acf/_EFIS_camera_xyz/1 0.000000000
 P acf/_EFIS_camera_xyz/2 0.000000000
 P acf/_EFIS_camera_xyz/count 3
 P acf/_EGT_is_C 1
+P acf/_ESP_stall_discrete 0
+P acf/_FBWL 0.000000000
+P acf/_FBWVco 0.000000000
 P acf/_FBW_apply_P_to_engine/0 0
 P acf/_FBW_apply_P_to_engine/1 0
 P acf/_FBW_apply_P_to_engine/10 0
@@ -31204,6 +31215,9 @@ P acf/_FBW_apply_R_to_engine/7 0
 P acf/_FBW_apply_R_to_engine/8 0
 P acf/_FBW_apply_R_to_engine/9 0
 P acf/_FBW_apply_R_to_engine/count 16
+P acf/_FBWtheD 0.000000000
+P acf/_FBWtheI 0.000000000
+P acf/_FBWtheP 0.000000000
 P acf/_FF_is_lbsph 0
 P acf/_Gneg 1.399999976
 P acf/_Gpos 3.500000000
@@ -31237,6 +31251,7 @@ P acf/_SFC_half_lo_PRP 0.507000029
 P acf/_SFC_recip_rich_ratio 1.000000000
 P acf/_TOGA_discos_servos 0
 P acf/_TRQ_is_pcnt 1
+P acf/_Va_kts 0.000000000
 P acf/_Vbg_kts 0.000000000
 P acf/_Vfe1_kts 108.000000000
 P acf/_Vfem_kts 95.000000000
@@ -32200,6 +32215,7 @@ P acf/_correlator_interp/1 0.000000000
 P acf/_correlator_interp/2 0.000000000
 P acf/_correlator_interp/3 0.000000000
 P acf/_correlator_interp/count 4
+P acf/_cowl_flaps_EQ 1
 P acf/_cowl_x_ctr 0.000000000
 P acf/_crew_1/0 0.000000000
 P acf/_crew_1/1 0.000000000
@@ -32926,9 +32942,10 @@ P acf/_cus_rnd_use/9 0
 P acf/_cus_rnd_use/count 50
 P acf/_custom_autopilot 0
 P acf/_custom_govnr 0
-P acf/_cyclic_def_ailn 0.000000000
 P acf/_cyclic_def_elev_aft 0.000000000
 P acf/_cyclic_def_elev_fwd 0.000000000
+P acf/_cyclic_def_roll_lft 0.000000000
+P acf/_cyclic_def_roll_rgt 0.000000000
 P acf/_cyclic_dn_trim_rat 0.000000000
 P acf/_cyclic_lf_trim_rat 0.000000000
 P acf/_cyclic_rt_trim_rat 0.000000000
@@ -33052,6 +33069,7 @@ P acf/_esys_amperage/rel_bus2 0.000000000
 P acf/_esys_amperage/rel_bus3 0.000000000
 P acf/_esys_amperage/rel_bus4 0.000000000
 P acf/_esys_amperage/rel_bus5 0.000000000
+P acf/_esys_amperage/rel_clutch 0.000000000
 P acf/_esys_amperage/rel_cop_AOA 0.000000000
 P acf/_esys_amperage/rel_cop_radalt 0.000000000
 P acf/_esys_amperage/rel_cop_tsi 0.000000000
@@ -33150,6 +33168,8 @@ P acf/_esys_amperage/rel_navcom1 5.000000000
 P acf/_esys_amperage/rel_navcom2 0.000000000
 P acf/_esys_amperage/rel_pil_radalt 0.000000000
 P acf/_esys_amperage/rel_pil_tsi 1.500000000
+P acf/_esys_amperage/rel_rpm_ind_0 0.000000000
+P acf/_esys_amperage/rel_rpm_ind_1 0.000000000
 P acf/_esys_amperage/rel_rud_trim 7.000000000
 P acf/_esys_amperage/rel_servo_thro 0.000000000
 P acf/_esys_amperage/rel_slats 0.000000000
@@ -33182,6 +33202,7 @@ P acf/_esys_bus_bit_add/rel_bus2 4
 P acf/_esys_bus_bit_add/rel_bus3 0
 P acf/_esys_bus_bit_add/rel_bus4 0
 P acf/_esys_bus_bit_add/rel_bus5 0
+P acf/_esys_bus_bit_add/rel_clutch 0
 P acf/_esys_bus_bit_add/rel_cop_AOA 0
 P acf/_esys_bus_bit_add/rel_cop_radalt 0
 P acf/_esys_bus_bit_add/rel_cop_tsi 0
@@ -33280,6 +33301,8 @@ P acf/_esys_bus_bit_add/rel_navcom1 2
 P acf/_esys_bus_bit_add/rel_navcom2 0
 P acf/_esys_bus_bit_add/rel_pil_radalt 0
 P acf/_esys_bus_bit_add/rel_pil_tsi 1
+P acf/_esys_bus_bit_add/rel_rpm_ind_0 0
+P acf/_esys_bus_bit_add/rel_rpm_ind_1 0
 P acf/_esys_bus_bit_add/rel_rud_trim 1
 P acf/_esys_bus_bit_add/rel_servo_thro 0
 P acf/_esys_bus_bit_add/rel_slats 0
@@ -33315,6 +33338,7 @@ P acf/_fadec_tla/2 0.000000000
 P acf/_fadec_tla/count 3
 P acf/_fan_rpm_for_n1_100 0.000000000
 P acf/_fbrk_on_td_EQ 0
+P acf/_fbrk_rto_vind 0.000000000
 P acf/_fdir_needed_to_engage_servo 0
 P acf/_feather_on_engn_fail_EQ 0
 P acf/_feather_on_mixt_pull_EQ 0
@@ -33324,7 +33348,7 @@ P acf/_feathered_pitch 7.500000000
 P acf/_ff_rat_idle_JET 0.100000001
 P acf/_ff_rat_idle_PRP 0.050000001
 P acf/_ff_rat_idle_turbo 0.050000001
-P acf/_file_writer_version 120046
+P acf/_file_writer_version 121004
 P acf/_fixed_max/0 250.000000000
 P acf/_fixed_max/1 132.300003052
 P acf/_fixed_max/2 361.500000000
@@ -33438,6 +33462,8 @@ P acf/_flap_ret_time 5.000000000
 P acf/_flap_retract_protect 0
 P acf/_flap_speed_rat_at_0 1.000000000
 P acf/_flaps_are_infinite 1
+P acf/_flaps_dial_a_flap 0
+P acf/_flaps_johnson_bar 0
 P acf/_flaps_with_gear_EQ 0
 P acf/_flaps_with_stall_rat_0 1.000000000
 P acf/_flaps_with_stall_rat_1 1.000000000
@@ -33455,6 +33481,7 @@ P acf/_food_2/0 0.000000000
 P acf/_food_2/1 0.000000000
 P acf/_food_2/2 0.000000000
 P acf/_food_2/count 3
+P acf/_frac_oil_temp_to_fuel 0.500000000
 P acf/_frc_damp_brak_lb 0.000000000
 P acf/_frc_damp_hdng_lb 0.000000000
 P acf/_frc_damp_ptch_lb 0.000000000
@@ -33474,6 +33501,12 @@ P acf/_frc_stall_freq 0.000000000
 P acf/_frc_stall_lb 0.000000000
 P acf/_frc_stickshaker_freq 0.000000000
 P acf/_frc_stickshaker_lb 0.000000000
+P acf/_free_turb_Ng_pow_sig28 4.500000000
+P acf/_free_turb_Ng_pow_sigSL 6.000000000
+P acf/_free_turb_Np_pow_sig28 4.500000000
+P acf/_free_turb_Np_pow_sigSL 6.000000000
+P acf/_free_turb_drag_k 0.100000001
+P acf/_free_turbine_engine_rev 0
 P acf/_fuel_1/0 0.000000000
 P acf/_fuel_1/1 0.000000000
 P acf/_fuel_1/2 0.000000000
@@ -33498,6 +33531,7 @@ P acf/_fuel_sel_cmnd_valid_pos_rgt/3 3
 P acf/_fuel_sel_cmnd_valid_pos_rgt/4 4
 P acf/_fuel_sel_cmnd_valid_pos_rgt/5 -1
 P acf/_fuel_sel_cmnd_valid_pos_rgt/count 6
+P acf/_g1000_keyboard_EQ -1
 P acf/_gear_EQ 1
 P acf/_gear_can_ret_on_ground 0
 P acf/_gear_exposed_when_retracted 0.000000000
@@ -33526,7 +33560,7 @@ P acf/_govnr_del 0.010000000
 P acf/_govnr_dot 0.010000000
 P acf/_gps_has_429_output0 0
 P acf/_gps_has_429_output1 0
-P acf/_green_hi_CHT 215.000000000
+P acf/_green_hi_CHT 200.000000000
 P acf/_green_hi_EGT 800.000000000
 P acf/_green_hi_EPR 0.000000000
 P acf/_green_hi_FF 0.000000000
@@ -33550,7 +33584,7 @@ P acf/_green_hi_stator 0.000000000
 P acf/_green_hi_vac 0.000000000
 P acf/_green_hi_xmsn_P 0.000000000
 P acf/_green_hi_xmsn_T 0.000000000
-P acf/_green_lo_CHT 150.000000000
+P acf/_green_lo_CHT 100.000000000
 P acf/_green_lo_EGT 600.000000000
 P acf/_green_lo_EPR 0.000000000
 P acf/_green_lo_FF 0.000000000
@@ -33580,7 +33614,7 @@ P acf/_ground_pwr/2 18.500000000
 P acf/_ground_pwr/count 3
 P acf/_gyro_spooldown_time 60.000000000
 P acf/_gyro_spoolup_time 5.000000000
-P acf/_h_eqlbm 6.189404011
+P acf/_h_eqlbm 6.189398289
 P acf/_has_ADG 0
 P acf/_has_APU_bleed_air 0
 P acf/_has_APU_generator 0
@@ -33607,6 +33641,7 @@ P acf/_has_food_1 0
 P acf/_has_food_2 0
 P acf/_has_fuel_1 0
 P acf/_has_fuel_2 0
+P acf/_has_fuel_heater 0
 P acf/_has_full_bleed_air 0
 P acf/_has_get_tow 0
 P acf/_has_get_tow_new 0
@@ -33643,7 +33678,7 @@ P acf/_hud_tapes_track_vector 0
 P acf/_hyd_PTU_type 0
 P acf/_hyd_brakes 3
 P acf/_hyd_ele_pump_0123/0 2
-P acf/_hyd_ele_pump_0123/1 6
+P acf/_hyd_ele_pump_0123/1 0
 P acf/_hyd_ele_pump_0123/2 0
 P acf/_hyd_ele_pump_0123/count 3
 P acf/_hyd_engn_pump_0123/0 1
@@ -33703,6 +33738,8 @@ P acf/_idle_rat/1 1.029999971
 P acf/_idle_rat/count 2
 P acf/_incidence_with_flaps 0
 P acf/_inlet_compression_efficiency 0.200000003
+P acf/_inlet_max_KEAS 9999.900390625
+P acf/_inlet_max_temp_C 999.900024414
 P acf/_integrated_approach_navigation 0
 P acf/_inverted_fuel_oil_EQ 0
 P acf/_inverter_for_elec_gyros 1
@@ -33759,6 +33796,8 @@ P acf/_m_displaced 0.000000000
 P acf/_m_displaced_Y 0.000000000
 P acf/_m_empty 6107.000000000
 P acf/_m_fuel_max_tot 1343.739990234
+P acf/_m_fuel_xfer_start 61.200000763
+P acf/_m_fuel_xfer_stop 1.000000000
 P acf/_m_jett 4850.169921875
 P acf/_m_max 1.16845E4
 P acf/_m_shift 0.000000000
@@ -33769,10 +33808,11 @@ P acf/_manual_reversion_rat 0.250000000
 P acf/_manufacturer PZL-Mielec
 P acf/_mast_bump_cyclic_ailn 0.000000000
 P acf/_mast_bump_cyclic_roll 0.000000000
-P acf/_max_CHT 295.000000000
+P acf/_max_CHT 235.000000000
 P acf/_max_EGT 664.000000000
 P acf/_max_ITT 664.000000000
 P acf/_max_MP_limit 41.340000153
+P acf/_max_atc_alt_ft 0.000000000
 P acf/_max_bat_amp 120.000000000
 P acf/_max_bat_temp 10.000000000
 P acf/_max_gen_amp0 120.000000000
@@ -33801,6 +33841,8 @@ P acf/_max_stator 100.000000000
 P acf/_max_vac 8.000000000
 P acf/_max_xmsn_P 1.000000000
 P acf/_max_xmsn_T 1.000000000
+P acf/_min_N1_turboprop_governor 0.000000000
+P acf/_min_N2_jet_governor 0.000000000
 P acf/_min_n1 0.000000000
 P acf/_min_n2_EGT 0.000000000
 P acf/_min_n2_ITT 0.000000000
@@ -33809,15 +33851,18 @@ P acf/_min_vec_on_ground 0.000000000
 P acf/_mixt_x_ctr 0.000000000
 P acf/_n1_power_curve1 1.000000000
 P acf/_n1_power_curve2 1.000000000
+P acf/_n1_rated_thrust 100.000000000
 P acf/_n2_power_curve 1.000000000
 P acf/_name M-18B Dromader
 P acf/_new_plot_XP3D_cock/0 1
 P acf/_new_plot_outer_acf/0 0
+P acf/_no_default_contact_fx 0
 P acf/_no_default_engine_fx 0
 P acf/_no_default_gear_fx 0
 P acf/_no_default_gun_fx 1
 P acf/_no_default_jato_fx 0
 P acf/_no_default_wash_fx 0
+P acf/_no_default_water_fx 0
 P acf/_no_default_wing_fx 0
 P acf/_no_hydro_force_mult_brakes 1.000000000
 P acf/_no_hydro_force_mult_flcons 1.000000000
@@ -33912,7 +33957,7 @@ P acf/_radiator_duct_expansion 1.000000000
 P acf/_radiator_frontal_area 6.000000000
 P acf/_radiator_in_propwash 1
 P acf/_radio_alt_callout_advance 0.000000000
-P acf/_red_hi_CHT 245.000000000
+P acf/_red_hi_CHT 225.000000000
 P acf/_red_hi_EGT 800.000000000
 P acf/_red_hi_EPR 0.000000000
 P acf/_red_hi_FF 0.000000000
@@ -34004,7 +34049,7 @@ P acf/_roll_co 0.027000001
 P acf/_roll_max_full_def_KIAS 999.000000000
 P acf/_roll_to_eng_spo1 0.000000000
 P acf/_roll_to_eng_spo2 0.000000000
-P acf/_rotor_mi_rat 1.000000000
+P acf/_rotor_mi_rat 0.500000000
 P acf/_rrpm_trim_rpm_fast 0.000000000
 P acf/_rrpm_trim_rpm_slow 0.000000000
 P acf/_rrpm_trim_time 0.000000000
@@ -34048,10 +34093,12 @@ P acf/_sbrk_EQ 0
 P acf/_sbrk_on_td_EQ 0
 P acf/_scrolldef_x 0.000000000
 P acf/_scrolldef_y 0.000000000
+P acf/_selective_ties 7
 P acf/_sfc_burner 0.000042524
 P acf/_shut_off_fuel_at_min_prop 0
 P acf/_single_axis_ap 0
 P acf/_skid_EQ 0
+P acf/_slat1_cd 0.000000000
 P acf/_slat1_dn/0 0.000000000
 P acf/_slat1_dn/1 0.000000000
 P acf/_slat1_dn/10 0.000000000
@@ -34065,8 +34112,10 @@ P acf/_slat1_dn/7 0.000000000
 P acf/_slat1_dn/8 0.000000000
 P acf/_slat1_dn/9 0.000000000
 P acf/_slat1_dn/count 12
+P acf/_slat1_dn_max_deg 0.000000000
 P acf/_slat1_inc 0.000000000
 P acf/_slat1_type 1
+P acf/_slat2_cd 0.000000000
 P acf/_slat2_dn/0 0.000000000
 P acf/_slat2_dn/1 0.000000000
 P acf/_slat2_dn/10 0.000000000
@@ -34080,6 +34129,7 @@ P acf/_slat2_dn/7 0.000000000
 P acf/_slat2_dn/8 0.000000000
 P acf/_slat2_dn/9 0.000000000
 P acf/_slat2_dn/count 12
+P acf/_slat2_dn_max_deg 0.000000000
 P acf/_slat2_inc 0.000000000
 P acf/_slat2_type 1
 P acf/_slat_EQ 0
@@ -34090,6 +34140,18 @@ P acf/_slat_ret2_time 5.000000000
 P acf/_slat_with_Vind 0.000000000
 P acf/_slat_with_stall_EQ 0
 P acf/_slung_len 0.000000000
+P acf/_smart_tow_chord/0 0.000000000
+P acf/_smart_tow_chord/1 0.000000000
+P acf/_smart_tow_chord/count 2
+P acf/_smart_tow_gamma 0.000000000
+P acf/_smart_tow_len 0.000000000
+P acf/_smart_tow_mass 0.000000000
+P acf/_smart_tow_radius 0.000000000
+P acf/_smart_tow_rate 0.000000000
+P acf/_smart_tow_seek_dis 0.000000000
+P acf/_smart_tow_span/0 0.000000000
+P acf/_smart_tow_span/1 0.000000000
+P acf/_smart_tow_span/count 2
 P acf/_snd_N1 100.000000000
 P acf/_snd_kias 200.000000000
 P acf/_snd_rpm_eng 2000.000000000
@@ -34211,8 +34273,8 @@ P acf/_tailnum M18
 P acf/_tailrotor_EQ 0
 P acf/_takeoff_trim_11 0.000000000
 P acf/_tank_name/count 9
-P acf/_tank_part_en/0 1
-P acf/_tank_part_en/1 0
+P acf/_tank_part_en/0 0
+P acf/_tank_part_en/1 1
 P acf/_tank_part_en/2 -8
 P acf/_tank_part_en/3 -8
 P acf/_tank_part_en/4 -8
@@ -34241,6 +34303,16 @@ P acf/_tank_rat/6 0.000000000
 P acf/_tank_rat/7 0.000000000
 P acf/_tank_rat/8 0.000000000
 P acf/_tank_rat/count 9
+P acf/_tank_rat_def/0 0.500000000
+P acf/_tank_rat_def/1 0.500000000
+P acf/_tank_rat_def/2 0.500000000
+P acf/_tank_rat_def/3 0.500000000
+P acf/_tank_rat_def/4 0.500000000
+P acf/_tank_rat_def/5 0.500000000
+P acf/_tank_rat_def/6 0.500000000
+P acf/_tank_rat_def/7 0.500000000
+P acf/_tank_rat_def/8 0.500000000
+P acf/_tank_rat_def/count 9
 P acf/_tank_role/0 0
 P acf/_tank_role/1 0
 P acf/_tank_role/2 0
@@ -34309,7 +34381,7 @@ P acf/_tank_xyz_full/8,1 0.000000000
 P acf/_tank_xyz_full/8,2 0.000000000
 P acf/_tank_xyz_full/i_count 9
 P acf/_tank_xyz_full/j_count 3
-P acf/_the_eqlbm 11.469292641
+P acf/_the_eqlbm 11.469263077
 P acf/_thro_non_vect_props_at_sin_vect 0
 P acf/_thro_x_ctr 0.000000000
 P acf/_throt_max_fwd_emr 1.000000000
@@ -34381,7 +34453,7 @@ P acf/_wate_xyz/0 0.000000000
 P acf/_wate_xyz/1 0.000000000
 P acf/_wate_xyz/2 9.119999886
 P acf/_wate_xyz/count 3
-P acf/_water_drop_dep_time 0.300000012
+P acf/_water_drop_dep_time 0.699999988
 P acf/_water_rud_Z 0.000000000
 P acf/_water_rud_area 0.000000000
 P acf/_water_rud_maxdef 0.000000000
@@ -34393,6 +34465,7 @@ P acf/_wheel_t2 0.296000004
 P acf/_windshield_eff_factor 1.000000000
 P acf/_windshield_scratchy 0
 P acf/_wing_damp_rat 1.500000000
+P acf/_wing_frac_fuel 0.500000000
 P acf/_wing_frac_mass 0.250000000
 P acf/_wing_mid_dihed_per_g 0.500000000
 P acf/_wing_tilt_ptch 0.000000000
@@ -34530,6 +34603,7 @@ gen_LED Foam_qty
   DECIMALS 2
   PERIOD_WIDTH 0
   LED_ROWS 1
+  ROUNDING ROUND_ROUND
 
 gen_LED Water_qty
   POS 834.000000 714.000000
@@ -34544,6 +34618,7 @@ gen_LED Water_qty
   DECIMALS 2
   PERIOD_WIDTH 0
   LED_ROWS 1
+  ROUNDING ROUND_ROUND
 
 GROUP Comm
   LOCKED
@@ -34563,6 +34638,7 @@ GROUP Comm
     DECIMALS 3
     PERIOD_WIDTH 0
     LED_ROWS 1
+    ROUNDING ROUND_ROUND
 
   gen_LED com_frq_stby
     POS 457.000000 712.000000
@@ -34578,6 +34654,7 @@ GROUP Comm
     DECIMALS 3
     PERIOD_WIDTH 0
     LED_ROWS 1
+    ROUNDING ROUND_ROUND
 
 END_GROUP
 GROUP NAV
@@ -34598,6 +34675,7 @@ GROUP NAV
     DECIMALS 2
     PERIOD_WIDTH 0
     LED_ROWS 1
+    ROUNDING ROUND_ROUND
 
   gen_LED nav_frq_stby
     POS 456.000000 593.000000
@@ -34613,6 +34691,7 @@ GROUP NAV
     DECIMALS 2
     PERIOD_WIDTH 0
     LED_ROWS 1
+    ROUNDING ROUND_ROUND
 
 END_GROUP
 GROUP Transponder
@@ -34636,6 +34715,7 @@ GROUP Transponder
     DECIMALS 0
     PERIOD_WIDTH 0
     LED_ROWS 1
+    ROUNDING ROUND_ROUND
 
   gen_LED transponder
     POS 469.000000 490.000000
@@ -34652,6 +34732,7 @@ GROUP Transponder
     DECIMALS 0
     PERIOD_WIDTH 0
     LED_ROWS 1
+    ROUNDING ROUND_ROUND
 
   gen_text SBY
     POS 349.500000 478.500000

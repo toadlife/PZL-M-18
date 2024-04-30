@@ -136,6 +136,8 @@ oat = find_dataref("sim/cockpit2/temperature/outside_air_temp_degc")
 heater = find_dataref("custom/dromader/electrical/heater")
 window_temp = create_dataref("custom/dromader/misc/window_temp","number", dummy)
 
+bat_disconect = find_dataref("sim/operation/failures/rel_batter0")
+
 local ground_control = 0
 
 
@@ -266,13 +268,13 @@ function control_lock_engage_fn(phase)
 end
 
 
-local acf_moment = 1465
-local oil_moment = -30
-local pilot_moment = 196
-local fire_eq_moment = 77
-local ag_eqipment_moment = 0
+-- local acf_moment = 1465
+-- local oil_moment = -30
+-- local pilot_moment = 196
+-- local fire_eq_moment = 77
+-- local ag_eqipment_moment = 0
 local lsca = 2.261
-local defpos = (lsca*23.2)/100
+--local defpos = (lsca*23.2)/100
 
 function emer_handle_R_handler()
 	if emer_handle_R == 1 then
@@ -535,9 +537,12 @@ function flight_start()
 	audio_vol_com1 = audio_vol
 	audio_vol_nav1 = audio_vol
 	compass_lock_knob = 0
+	if gear1_on_ground and gear2_on_ground and gear3_on_ground then
+		parking_brake_ratio = 0
+	end
 	left_brake = parking_brake_ratio
 	right_brake = parking_brake_ratio
-	--parking_brake_ratio = 0
+	
 	window_temp = oat
 	if startup_running == 0 then
 		control_lock = 1
@@ -563,7 +568,9 @@ function flight_start()
 end
 
 function auto_board()
+		bat_disconect = 0
 		chocks = 0
+		batt = 1
 		pitot_cover = 0
 		pitot_fail = 0
 		air_int_cover = 0

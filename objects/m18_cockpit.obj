@@ -11768,7 +11768,7 @@ IDX	9848
 			TRIS	5595 84
 			ATTR_manip_none
 			ATTR_draw_enable
-			ATTR_cockpit	7000
+			ATTR_cockpit	1000
 			TRIS	10137 84
 			ATTR_draw_disable
 			ATTR_no_cockpit
@@ -11804,7 +11804,7 @@ IDX	9848
 			TRIS	5679 84
 			ATTR_manip_none
 			ATTR_draw_enable
-			ATTR_cockpit	7000
+			ATTR_cockpit	1000
 			TRIS	10371 6
 	ANIM_begin
 	ANIM_hide	1	1	custom/dromader/spray/boom_hide
@@ -13207,7 +13207,7 @@ IDX	9848
 							TRIS	10029 42
 						ATTR_manip_none
 						ATTR_draw_enable
-						ATTR_cockpit	7000
+						ATTR_cockpit	1000
 						TRIS	10071 6
 					ATTR_draw_disable
 					ATTR_no_cockpit
@@ -13217,7 +13217,7 @@ IDX	9848
 		ANIM_hide	1	1	custom/dromader/spray/boom_hide
 		ATTR_manip_none
 		ATTR_draw_enable
-		ATTR_cockpit	7000
+		ATTR_cockpit	1000
 		TRIS	10077 54
 		ANIM_end
 	ANIM_begin
@@ -13243,7 +13243,7 @@ IDX	9848
 	ANIM_hide	0	0	custom/dromader/water/foam_quantity_handle
 	ATTR_manip_none
 	ATTR_draw_enable
-	ATTR_cockpit	7000
+	ATTR_cockpit	1000
 	TRIS	10335 6
 	ANIM_end
 	ANIM_begin

@@ -85,17 +85,13 @@ cmdcsutomtransdwn = create_command("custom/dromader/radios/transponder_dn","Tran
 
 
 function cmd_transponder_vfr(phase, duration)
-	if phase == 0 and transponder_fuse == 1 then
+	if phase == 0 and transponder_fuse == 1 and transp_mode > 0 then
 		transp_code = 1200
 	end
 end
 
 
 cmdcsutomtransvfr = create_command("custom/dromader/radios/vfr","Transponder VFR",cmd_transponder_vfr)
-
-function dummy()
-
-end
 
 function thou_up_cmd_after(phase, duration)
 	if phase == 0 then
@@ -218,25 +214,39 @@ cmdcsutomnavfineup = wrap_command("sim/radios/stby_nav1_fine_up", dummy, navfine
 cmdcsutomnavfinedn = wrap_command("sim/radios/stby_nav1_fine_down", dummy, navfine_dn_cmd_after)
 
 function cmd_compwr_up(phase, duration)
-	if phase == 0 or phase == 1 then
-		if com_pwr_konb < 0.8 then
+	if phase == 0 then
+		if com_pwr_konb < 0.85 then
 			com_pwr_konb = com_pwr_konb + 0.05
-			if com_pwr_konb >= 0.05 then
+			if com_pwr_konb >= 0.01 then
 				com_pwr = 1
 			end
+		else 
+			com_pwr_knob = 1
+		end
+		if com_pwr == 1 then
 			com_brt = com_pwr_konb + 0.15
+		else
+			com_brt = 0
 		end
 	end
 end
 
 function cmd_compwr_dn(phase, duration)
-	if phase == 0 or phase == 1 then
-		if com_pwr_konb >= 0.05 then
+	if phase == 0 then
+		if com_pwr_konb > 0 then
 			com_pwr_konb = com_pwr_konb - 0.05
-			if com_pwr_konb == 0 then
+			if com_pwr_konb <= 0.01 then
 				com_pwr = 0
+				com_pwr_knob = 0
 			end
+			
+		else 
+			com_pwr_knob = 0
+		end
+		if com_pwr == 1 then
 			com_brt = com_pwr_konb + 0.15
+		else
+			com_brt = 0
 		end
 	end
 end
@@ -246,25 +256,38 @@ cmdcsutomcompwrup = create_command("custom/dromader/radios/comm_pwr_up","Comm po
 cmdcsutomcompwrdwn = create_command("custom/dromader/radios/comm_pwr_dwn","Comm power knob up",cmd_compwr_dn)
 
 function cmd_navpwr_up(phase, duration)
-	if phase == 0 or phase == 1 then
-		if nav_pwr_konb < 0.8 then
+	if phase == 0 then
+		if nav_pwr_konb < 0.85 then
 			nav_pwr_konb = nav_pwr_konb + 0.05
-			if nav_pwr_konb >= 0.05 then
+			if nav_pwr_konb >= 0.01 then
 				nav_pwr = 1
 			end
+		else
+			nav_pwr_knob = 1
+		end
+		if nav_pwr == 1 then
 			nav_brt = nav_pwr_konb + 0.15
+		else
+			nav_brt = 0
 		end
 	end
 end
 
 function cmd_navpwr_dn(phase, duration)
-	if phase == 0 or phase == 1 then
-		if nav_pwr_konb >= 0.05 then
+	if phase == 0 then
+		if nav_pwr_konb > 0 then
 			nav_pwr_konb = nav_pwr_konb - 0.05
-			if nav_pwr_konb == 0 then
+			if nav_pwr_konb <= 0.01 then
 				nav_pwr = 0
+				nav_pwr_knob = 0
 			end
+		else
+			nav_pwr_konb = 0
+		end
+		if nav_pwr == 1 then
 			nav_brt = nav_pwr_konb + 0.15
+		else
+			nav_brt = 0
 		end
 	end
 end
