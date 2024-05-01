@@ -91,7 +91,7 @@ startup_running = find_dataref("sim/operation/prefs/startup_running")
 
 spd_dr = find_dataref("sim/flightmodel/position/groundspeed")
 
-boom_hide = find_dataref("custom/dromader/spray/boom_hide")
+--boom_hide = find_dataref("custom/dromader/spray/boom_hide")
 
 water_quantity = find_dataref("sim/flightmodel/weight/m_jettison")
 acf_weight = find_dataref("sim/flightmodel/weight/m_fixed")
@@ -131,6 +131,7 @@ r_brake_add = find_dataref("sim/flightmodel/controls/r_brake_add")
 gear1_on_ground = find_dataref("sim/flightmodel2/gear/on_ground[0]")
 gear2_on_ground = find_dataref("sim/flightmodel2/gear/on_ground[1]")
 gear3_on_ground = find_dataref("sim/flightmodel2/gear/on_ground[2]")
+gear_on_ground_any = find_dataref("sim/flightmodel/failures/onground_any")
 
 oat = find_dataref("sim/cockpit2/temperature/outside_air_temp_degc")
 heater = find_dataref("custom/dromader/electrical/heater")
@@ -537,7 +538,7 @@ function flight_start()
 	audio_vol_com1 = audio_vol
 	audio_vol_nav1 = audio_vol
 	compass_lock_knob = 0
-	if gear1_on_ground and gear2_on_ground and gear3_on_ground then
+	if gear_on_ground_any == 0 then
 		parking_brake_ratio = 0
 	end
 	left_brake = parking_brake_ratio

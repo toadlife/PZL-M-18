@@ -24,7 +24,6 @@ vru_set = create_dataref("custom/dromader/spray/vru_set","number", dummy)
 pump_press_set = create_dataref("custom/dromader/spray/pump_press_set","number", dummy)
 flow_rate = create_dataref("custom/dromader/spray/flow_rate","number", dummy)
 acf_weight = find_dataref("sim/flightmodel/weight/m_fixed")
---foaming_quantity = find_dataref("custom/dromader/water/foaming_quantity")
 foaming_quantity = find_dataref("sim/flightmodel/weight/m_stations[1]")
 faxil = find_dataref("sim/flightmodel/forces/faxil_plug_acf")
 ag_equip_weight_dr = find_dataref("sim/flightmodel/weight/m_stations[2]")
@@ -37,13 +36,13 @@ function ag_equip_toggle_cmd(phase, duration)
 		if boom_hide == 0 then
 			boom_hide = 1
 			ag_equip_weight_dr = 0
-			--acf_cd = acf_cd_save
+			acf_cd = acf_cd_save
 			boom_press = 0
 			foaming_quantity = 60
 		else
 			boom_hide = 0
 			ag_equip_weight_dr = ag_equip_weight
-			--acf_cd = acf_cd_save*3
+			acf_cd = acf_cd_save*2
 			foaming_quantity = 0
 		end
 	end
@@ -96,16 +95,26 @@ end
 
 boomfusecmd = create_command("custom/dromader/spray/boom_fuse_cmd","Toggle boom fuse", boom_fuse_toggle_cmd)
 
-function flight_start()
-	if boom_hide == 1 then
-		ag_equip_weight_dr = 0
-	else	
-		ag_equip_weight_dr = ag_equip_weight
+
+local init = 0
+function after_physics()
+	if init == 0 then
+		if boom_hide == 1 then
+			if ag_equip_weight_dr > 100 then
+				ag_equip_toggle_cmd(0, 0)
+			else
+				ag_equip_weight_dr = 0
+			end
+		else	
+			if ag_equip_weight_dr < 100 then
+				ag_equip_toggle_cmd(0, 0)
+			else
+				ag_equip_weight_dr = ag_equip_weight
+			end
+		end
+		init = 1
 	end
 
-end
-
-function after_physics()
 	if boom_hide == 0 then
 		faxil = air_speed*30
 		--acf_weight = foaming_quantity + 211 + ag_equip_weight

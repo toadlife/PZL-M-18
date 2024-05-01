@@ -1036,8 +1036,8 @@ function cmd_but_ent(phase, duration)
 				points["B"]["lon"] = 0
 				points["C"]["lat"] = 0
 				points["C"]["lon"] = 0
-				points["Mrk"]["lat"] = 0
-				points["Mrk"]["lon"] = 0
+				--points["Mrk"]["lat"] = 0
+				--points["Mrk"]["lon"] = 0
 				swath_tbl = clear_tbl(swath_tbl)
 				swath_sequence_tbl = clear_tbl(swath_sequence_tbl)
 				--old_job["set1"] = menu[1]["set"]
