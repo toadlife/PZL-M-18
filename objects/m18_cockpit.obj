@@ -11758,11 +11758,11 @@ IDX	9848
 				ATTR_manip_command	hand	sim/radios/nav1_standy_flip 	Flip Nav Freq
 				TRIS	3159 36
 			ANIM_end
-			ATTR_manip_command_knob	rotate_large	sim/radios/stby_com1_coarse_up	sim/radios/stby_com1_coarse_down	
+			ATTR_manip_command_knob	rotate_large	sim/radios/stby_com1_coarse_up_833	sim/radios/stby_com1_coarse_down_833	
 			TRIS	5343 84
 			ATTR_manip_command_knob	rotate_large	sim/radios/stby_nav1_coarse_up 	sim/radios/stby_nav1_coarse_down	
 			TRIS	5427 84
-			ATTR_manip_command_knob	rotate_small	sim/radios/stby_com1_fine_up	sim/radios/stby_com1_fine_down	
+			ATTR_manip_command_knob	rotate_small	sim/radios/stby_com1_fine_up_833	sim/radios/stby_com1_fine_down_833	
 			TRIS	5511 84
 			ATTR_manip_command_knob	rotate_small	sim/radios/stby_nav1_fine_up	sim/radios/stby_nav1_fine_down	
 			TRIS	5595 84

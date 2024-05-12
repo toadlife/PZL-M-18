@@ -13,6 +13,8 @@ volt_needle = create_dataref("custom/dromader/electrical/volt_needle","number", 
 
 batt = find_dataref("sim/cockpit2/electrical/battery_on[0]")
 gpu = find_dataref("sim/cockpit/electrical/gpu_on")
+gpu_override = find_dataref("sim/operation/override/override_GPU_volts")
+gpu_volts = find_dataref("sim/cockpit2/electrical/GPU_generator_volts")
 startup_running = find_dataref("sim/operation/prefs/startup_running")
 
 running_eng = find_dataref("sim/flightmodel/engine/ENGN_running[0]")
@@ -370,6 +372,8 @@ function flight_start()
 		fuel_fuse = 1
 		elec_hyd = 1
 		bus_load_add = 10
+		gpu_override = 1
+		gpu_volts = 24
 	else
 		bat_sel = 1
 		batt = 0
@@ -384,6 +388,10 @@ function flight_start()
 		transponder_fail = 6
 		elec_hyd = 0
 	end
+end
+
+function aircraft_unload()
+	gpu_override = 0
 end
 
 function update_volt_needle()
