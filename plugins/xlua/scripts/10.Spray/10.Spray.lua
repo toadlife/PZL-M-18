@@ -42,7 +42,7 @@ function ag_equip_toggle_cmd(phase, duration)
 		else
 			boom_hide = 0
 			ag_equip_weight_dr = ag_equip_weight
-			acf_cd = acf_cd_save*2
+			acf_cd = acf_cd_save*1.5
 			foaming_quantity = 0
 		end
 	end

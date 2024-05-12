@@ -1767,274 +1767,280 @@ function generate_kml()
 		mem[idx]["track"] = deepcopy(track)
 		mem[idx]["swath_sequence_tbl"] = deepcopy(swath_sequence_tbl)
 	end
-	
+	local separator = get_path_separator()
+	local path = script_path()
+	print(path)
 	for m=1, #mem do		
 		local year = os.date("%Y")
 		local filename = "Output/LiteStarIV".. "_" .. os.date("%Y-%m-%d-%H-%M") .. "_job_" .. m .. ".kml"
 		local file = io.open(filename, "w")
 		
-	file:write([[
-<?xml version="1.0" encoding="UTF-8"?>
-<kml xmlns="http://www.opengis.net/kml/2.2" xmlns:gx="http://www.google.com/kml/ext/2.2">
-	<Document>
-		<name>LiteStar IV GPS</name>
-		]])
-	file:write("		<Snippet>Created " .. os.date("%Y-%m-%d %H:%M:%S") .. "</Snippet>\n")	
-	file:write([[
-		<Style id="swathline">
-			 <LineStyle>
-				 <color>ff0000ff</color>
-				 <width>5</width>
-				 <gx:labelVisibility>1</gx:labelVisibility>
-			 </LineStyle>
-		 </Style>
-		<Style id="sprayline">
-			 <LineStyle>
-				 <color>64B4E614</color>
-				 ]])
-		if(mem[m]["job"]["set12"] == 1) then
-			file:write("				 <gx:physicalWidth>" .. feet2met(mem[m]["job"]["swath_width"]) ..  "</gx:physicalWidth>\n")
-		else
-			file:write("				 <gx:physicalWidth>" .. mem[m]["job"]["swath_width"] ..  "</gx:physicalWidth>\n")
-		end
-	file:write([[
-				 <gx:labelVisibility>1</gx:labelVisibility>
-			 </LineStyle>
-		 </Style>
-	   <!-- Normal track style -->
-		<LookAt>
-		]])
-	file:write("		<longitude>" .. mem[m]["track"][1]["lon"] .. "</longitude>\n")
-	file:write("		<latitude>" .. mem[m]["track"][1]["lat"] .. "</latitude>\n")
-	file:write("		<range>" .. (2000.000000 + mem[m]["track"][1]["alt"]) .. "</range>\n")
-	file:write([[
-		</LookAt>
-		<Style id="track_n">
-		  <IconStyle>
-			<scale>.5</scale>
-			<Icon>
-			  <href>http://earth.google.com/images/kml-icons/track-directional/track-none.png</href>
-			</Icon>
-		  </IconStyle>
-		  <LabelStyle>
-			<scale>0</scale>
-		  </LabelStyle>
-
-		</Style>
-		<!-- Highlighted track style -->
-		<Style id="track_h">
-		  <IconStyle>
-			<scale>1.2</scale>
-			<Icon>
-			  <href>http://earth.google.com/images/kml-icons/track-directional/track-none.png</href>
-			</Icon>
-		  </IconStyle>
-		</Style>
-		<StyleMap id="track">
-		  <Pair>
-			<key>normal</key>
-			<styleUrl>#track_n</styleUrl>
-		  </Pair>
-		  <Pair>
-			<key>highlight</key>
-			<styleUrl>#track_h</styleUrl>
-		  </Pair>
-		</StyleMap>
-		<!-- Normal multiTrack style -->
-		<Style id="multiTrack_n">
-		  <IconStyle>
-			<Icon>
-			  <href>http://earth.google.com/images/kml-icons/track-directional/track-0.png</href>
-			</Icon>
-		  </IconStyle>
-		  <LineStyle>
-			<color>99ffac59</color>
-			<width>4</width>
-		  </LineStyle>
-
-		</Style>
-		<!-- Highlighted multiTrack style -->
-		<Style id="multiTrack_h">
-		  <IconStyle>
-			<scale>1.2</scale>
-			<Icon>
-			  <href>http://earth.google.com/images/kml-icons/track-directional/track-0.png</href>
-			</Icon>
-		  </IconStyle>
-		  <LineStyle>
-			<color>99ffac59</color>
-			<width>6</width>
-		  </LineStyle>
-		</Style>
-		<StyleMap id="multiTrack">
-		  <Pair>
-			<key>normal</key>
-			<styleUrl>#multiTrack_n</styleUrl>
-		  </Pair>
-		  <Pair>
-			<key>highlight</key>
-			<styleUrl>#multiTrack_h</styleUrl>
-		  </Pair>
-		</StyleMap>
-		<!-- Normal waypoint style -->
-		<Style id="waypoint_n">
-		  <IconStyle>
-			<Icon>
-			  <href>http://maps.google.com/mapfiles/kml/pal4/icon61.png</href>
-			</Icon>
-		  </IconStyle>
-		</Style>
-		<!-- Highlighted waypoint style -->
-		<Style id="waypoint_h">
-		  <IconStyle>
-			<scale>1.2</scale>
-			<Icon>
-			  <href>http://maps.google.com/mapfiles/kml/pal4/icon61.png</href>
-			</Icon>
-		  </IconStyle>
-		</Style>
-		<StyleMap id="waypoint">
-		  <Pair>
-			<key>normal</key>
-			<styleUrl>#waypoint_n</styleUrl>
-		  </Pair>
-		  <Pair>
-			<key>highlight</key>
-			<styleUrl>#waypoint_h</styleUrl>
-		  </Pair>
-		</StyleMap>
-		<Style id="lineStyle">
-		  <LineStyle>
-			<color>99ffac59</color>
-			<width>4</width>
-		  </LineStyle>
-		</Style>
-		 <Schema id="schema">
-			<gx:SimpleArrayField name="speed" type="string">
-				 <displayName>Speed</displayName>
-			</gx:SimpleArrayField>
-			<gx:SimpleArrayField name="payload" type="string">
-				<displayName>Payload</displayName>
-			</gx:SimpleArrayField>
-			<gx:SimpleArrayField name="area" type="string">
-				<displayName>Area</displayName>
-			</gx:SimpleArrayField>
-		 </Schema>
-		 ]])
-		if mem[m]["job"]["pointAlon"] ~= 0 and mem[m]["job"]["pointAlat"] ~=0 then
-		file:write("		<Placemark>\n")
-		file:write("			<name>Point A</name>\n")
-		file:write("				<Point>\n")
-		file:write("					<coordinates>" .. mem[m]["job"]["pointAlon"] .. "," .. mem[m]["job"]["pointAlat"] .. "," .. "0" .. "</coordinates>\n")
-		file:write("				</Point>\n")	
-		file:write("		</Placemark>\n")
+	if file ~= nil then
 		
-			if mem[m]["job"]["pointBlon"] ~= 0 and mem[m]["job"]["pointBlat"] ~=0 then
+	
+		file:write([[
+	<?xml version="1.0" encoding="UTF-8"?>
+	<kml xmlns="http://www.opengis.net/kml/2.2" xmlns:gx="http://www.google.com/kml/ext/2.2">
+		<Document>
+			<name>LiteStar IV GPS</name>
+			]])
+		file:write("		<Snippet>Created " .. os.date("%Y-%m-%d %H:%M:%S") .. "</Snippet>\n")	
+		file:write([[
+			<Style id="swathline">
+				<LineStyle>
+					<color>ff0000ff</color>
+					<width>5</width>
+					<gx:labelVisibility>1</gx:labelVisibility>
+				</LineStyle>
+			</Style>
+			<Style id="sprayline">
+				<LineStyle>
+					<color>64B4E614</color>
+					]])
+			if(mem[m]["job"]["set12"] == 1) then
+				file:write("				 <gx:physicalWidth>" .. feet2met(mem[m]["job"]["swath_width"]) ..  "</gx:physicalWidth>\n")
+			else
+				file:write("				 <gx:physicalWidth>" .. mem[m]["job"]["swath_width"] ..  "</gx:physicalWidth>\n")
+			end
+		file:write([[
+					<gx:labelVisibility>1</gx:labelVisibility>
+				</LineStyle>
+			</Style>
+		<!-- Normal track style -->
+			<LookAt>
+			]])
+		file:write("		<longitude>" .. mem[m]["track"][1]["lon"] .. "</longitude>\n")
+		file:write("		<latitude>" .. mem[m]["track"][1]["lat"] .. "</latitude>\n")
+		file:write("		<range>" .. (2000.000000 + mem[m]["track"][1]["alt"]) .. "</range>\n")
+		file:write([[
+			</LookAt>
+			<Style id="track_n">
+			<IconStyle>
+				<scale>.5</scale>
+				<Icon>
+				<href>http://earth.google.com/images/kml-icons/track-directional/track-none.png</href>
+				</Icon>
+			</IconStyle>
+			<LabelStyle>
+				<scale>0</scale>
+			</LabelStyle>
+
+			</Style>
+			<!-- Highlighted track style -->
+			<Style id="track_h">
+			<IconStyle>
+				<scale>1.2</scale>
+				<Icon>
+				<href>http://earth.google.com/images/kml-icons/track-directional/track-none.png</href>
+				</Icon>
+			</IconStyle>
+			</Style>
+			<StyleMap id="track">
+			<Pair>
+				<key>normal</key>
+				<styleUrl>#track_n</styleUrl>
+			</Pair>
+			<Pair>
+				<key>highlight</key>
+				<styleUrl>#track_h</styleUrl>
+			</Pair>
+			</StyleMap>
+			<!-- Normal multiTrack style -->
+			<Style id="multiTrack_n">
+			<IconStyle>
+				<Icon>
+				<href>http://earth.google.com/images/kml-icons/track-directional/track-0.png</href>
+				</Icon>
+			</IconStyle>
+			<LineStyle>
+				<color>99ffac59</color>
+				<width>4</width>
+			</LineStyle>
+
+			</Style>
+			<!-- Highlighted multiTrack style -->
+			<Style id="multiTrack_h">
+			<IconStyle>
+				<scale>1.2</scale>
+				<Icon>
+				<href>http://earth.google.com/images/kml-icons/track-directional/track-0.png</href>
+				</Icon>
+			</IconStyle>
+			<LineStyle>
+				<color>99ffac59</color>
+				<width>6</width>
+			</LineStyle>
+			</Style>
+			<StyleMap id="multiTrack">
+			<Pair>
+				<key>normal</key>
+				<styleUrl>#multiTrack_n</styleUrl>
+			</Pair>
+			<Pair>
+				<key>highlight</key>
+				<styleUrl>#multiTrack_h</styleUrl>
+			</Pair>
+			</StyleMap>
+			<!-- Normal waypoint style -->
+			<Style id="waypoint_n">
+			<IconStyle>
+				<Icon>
+				<href>http://maps.google.com/mapfiles/kml/pal4/icon61.png</href>
+				</Icon>
+			</IconStyle>
+			</Style>
+			<!-- Highlighted waypoint style -->
+			<Style id="waypoint_h">
+			<IconStyle>
+				<scale>1.2</scale>
+				<Icon>
+				<href>http://maps.google.com/mapfiles/kml/pal4/icon61.png</href>
+				</Icon>
+			</IconStyle>
+			</Style>
+			<StyleMap id="waypoint">
+			<Pair>
+				<key>normal</key>
+				<styleUrl>#waypoint_n</styleUrl>
+			</Pair>
+			<Pair>
+				<key>highlight</key>
+				<styleUrl>#waypoint_h</styleUrl>
+			</Pair>
+			</StyleMap>
+			<Style id="lineStyle">
+			<LineStyle>
+				<color>99ffac59</color>
+				<width>4</width>
+			</LineStyle>
+			</Style>
+			<Schema id="schema">
+				<gx:SimpleArrayField name="speed" type="string">
+					<displayName>Speed</displayName>
+				</gx:SimpleArrayField>
+				<gx:SimpleArrayField name="payload" type="string">
+					<displayName>Payload</displayName>
+				</gx:SimpleArrayField>
+				<gx:SimpleArrayField name="area" type="string">
+					<displayName>Area</displayName>
+				</gx:SimpleArrayField>
+			</Schema>
+			]])
+			if mem[m]["job"]["pointAlon"] ~= 0 and mem[m]["job"]["pointAlat"] ~=0 then
 			file:write("		<Placemark>\n")
-			file:write("			<name>Point B</name>\n")
+			file:write("			<name>Point A</name>\n")
 			file:write("				<Point>\n")
-			file:write("					<coordinates>" .. mem[m]["job"]["pointBlon"] .. "," .. mem[m]["job"]["pointBlat"] .. "," .. "0" .. "</coordinates>\n")
+			file:write("					<coordinates>" .. mem[m]["job"]["pointAlon"] .. "," .. mem[m]["job"]["pointAlat"] .. "," .. "0" .. "</coordinates>\n")
 			file:write("				</Point>\n")	
 			file:write("		</Placemark>\n")
 			
-				if mem[m]["job"]["pointClon"] ~= 0 and mem[m]["job"]["pointClat"] ~=0 then
+				if mem[m]["job"]["pointBlon"] ~= 0 and mem[m]["job"]["pointBlat"] ~=0 then
 				file:write("		<Placemark>\n")
-				file:write("			<name>Point C</name>\n")
+				file:write("			<name>Point B</name>\n")
 				file:write("				<Point>\n")
-				file:write("					<coordinates>" .. mem[m]["job"]["pointClon"] .. "," .. mem[m]["job"]["pointClat"] .. "," .. "0" .. "</coordinates>\n")
+				file:write("					<coordinates>" .. mem[m]["job"]["pointBlon"] .. "," .. mem[m]["job"]["pointBlat"] .. "," .. "0" .. "</coordinates>\n")
 				file:write("				</Point>\n")	
-				file:write("			</Placemark>\n")
+				file:write("		</Placemark>\n")
+				
+					if mem[m]["job"]["pointClon"] ~= 0 and mem[m]["job"]["pointClat"] ~=0 then
+					file:write("		<Placemark>\n")
+					file:write("			<name>Point C</name>\n")
+					file:write("				<Point>\n")
+					file:write("					<coordinates>" .. mem[m]["job"]["pointClon"] .. "," .. mem[m]["job"]["pointClat"] .. "," .. "0" .. "</coordinates>\n")
+					file:write("				</Point>\n")	
+					file:write("			</Placemark>\n")
+					end
+					
 				end
 				
 			end
-			
-		end
-			if mem[m]["job"]["pointMrklon"] ~= 0 and mem[m]["job"]["pointMrklat"] ~=0 then
-			file:write("		<Placemark>\n")
-			file:write("			<name>Marker</name>\n")
-			file:write("				<Point>\n")
-			file:write("					<coordinates>" .. mem[m]["job"]["pointMrklon"] .. "," .. mem[m]["job"]["pointMrklat"] .. "," .. "0" .. "</coordinates>\n")
-			file:write("				</Point>\n")	
-			file:write("			</Placemark>\n")
-			end
-		for k,v in pairs(mem[m]["swath_tbl"]) do
-			file:write("		<Placemark>\n")
-
-			file:write("			<name>Swatht " .. k .. "|Num in sequence " .. mem[m]["swath_sequence_tbl"][k] .. "</name>\n")
-			file:write("			<styleUrl>#swathline</styleUrl>\n")	
-			file:write("				<LineString>\n")
-			file:write("					<coordinates>\n")
-			
-			file:write("						" .. v["lonA"] .. "," .. v["latA"] .. "\n" .. "						" .. v["lonB"] .. "," .. v["latB"] .. "\n")
-			
-			file:write("					</coordinates>\n")
-			file:write("				</LineString>\n")	
-			file:write("		</Placemark>\n")
-		end
-		local count = 1
-		local i = 1
-		while i <= #mem[m]["track"] do
-			if mem[m]["track"][i]["spray"] == 1 then
+				if mem[m]["job"]["pointMrklon"] ~= 0 and mem[m]["job"]["pointMrklat"] ~=0 then
+				file:write("		<Placemark>\n")
+				file:write("			<name>Marker</name>\n")
+				file:write("				<Point>\n")
+				file:write("					<coordinates>" .. mem[m]["job"]["pointMrklon"] .. "," .. mem[m]["job"]["pointMrklat"] .. "," .. "0" .. "</coordinates>\n")
+				file:write("				</Point>\n")	
+				file:write("			</Placemark>\n")
+				end
+			for k,v in pairs(mem[m]["swath_tbl"]) do
 				file:write("		<Placemark>\n")
 
-				file:write("			<name>Spray run " .. count .. "</name>\n")
-				file:write("			<styleUrl>#sprayline</styleUrl>\n")	
+				file:write("			<name>Swatht " .. k .. "|Num in sequence " .. mem[m]["swath_sequence_tbl"][k] .. "</name>\n")
+				file:write("			<styleUrl>#swathline</styleUrl>\n")	
 				file:write("				<LineString>\n")
 				file:write("					<coordinates>\n")
-
-					while mem[m]["track"][i]["spray"] == 1 do
-						file:write("						" .. mem[m]["track"][i]["lon"] .. "," .. mem[m]["track"][i]["lat"] .. "\n")
-						i = i + 1
-						if i > #mem[m]["track"] then break end
-					end
+				
+				file:write("						" .. v["lonA"] .. "," .. v["latA"] .. "\n" .. "						" .. v["lonB"] .. "," .. v["latB"] .. "\n")
 				
 				file:write("					</coordinates>\n")
 				file:write("				</LineString>\n")	
 				file:write("		</Placemark>\n")
-				count = count + 1
 			end
-			i = i + 1
+			local count = 1
+			local i = 1
+			while i <= #mem[m]["track"] do
+				if mem[m]["track"][i]["spray"] == 1 then
+					file:write("		<Placemark>\n")
+
+					file:write("			<name>Spray run " .. count .. "</name>\n")
+					file:write("			<styleUrl>#sprayline</styleUrl>\n")	
+					file:write("				<LineString>\n")
+					file:write("					<coordinates>\n")
+
+						while mem[m]["track"][i]["spray"] == 1 do
+							file:write("						" .. mem[m]["track"][i]["lon"] .. "," .. mem[m]["track"][i]["lat"] .. "\n")
+							i = i + 1
+							if i > #mem[m]["track"] then break end
+						end
+					
+					file:write("					</coordinates>\n")
+					file:write("				</LineString>\n")	
+					file:write("		</Placemark>\n")
+					count = count + 1
+				end
+				i = i + 1
+			end
+			file:write("		<Folder>\n")
+			file:write("		<name>AcfTrack</name>\n")
+			file:write("			<Placemark>\n")	
+			file:write("				<name>Aircraft</name>\n")
+			file:write("				<styleUrl>#multiTrack</styleUrl>\n")
+			file:write("				<gx:Track>\n")
+			file:write("				<altitudeMode>absolute</altitudeMode>\n")
+			
+			for k,v in pairs(mem[m]["track"]) do
+				local line  = string.format("				<when>%d-%02d-%02dT%02d:%02d:%02dZ</when>\n", year, month, day, v["hr"], v["min"], v["sec"])
+				file:write(line)
+			end
+			for k,v in pairs(mem[m]["track"]) do
+				file:write("				<gx:coord>" .. v["lon"] .. " " .. v["lat"] .. " " .. v["alt"] .. "</gx:coord>\n")
+			end
+			file:write("					<ExtendedData>\n")
+			file:write("						<SchemaData schemaUrl=\"#schema\">\n")
+			file:write("							<gx:SimpleArrayData name=\"speed\">\n")
+			for k,v in pairs(mem[m]["track"]) do
+				file:write("								<gx:value>" .. v["spd"] .. " km/h" .. "</gx:value>\n")
+			end	
+			file:write("							</gx:SimpleArrayData>\n")
+			file:write("							<gx:SimpleArrayData name=\"payload\">\n")
+			for k,v in pairs(mem[m]["track"]) do
+				file:write("								<gx:value>" .. round2(v["payload"], 1) .. " kg" .. "</gx:value>\n")
+			end	
+			file:write("							</gx:SimpleArrayData>\n")
+			file:write("							<gx:SimpleArrayData name=\"area\">\n")
+			for k,v in pairs(mem[m]["track"]) do
+				file:write("								<gx:value>" .. round2(v["area"], 2) .. " ha" .. "</gx:value>\n")
+			end	
+			file:write("							</gx:SimpleArrayData>\n")
+			file:write("						</SchemaData>\n")
+			file:write("					</ExtendedData>\n")
+			file:write("				</gx:Track>\n")
+			file:write("			</Placemark>\n")
+			file:write("		</Folder>\n")
+			file:write("	</Document>\n")	
+			file:write("</kml>\n")
+			file:close()
 		end
-		file:write("		<Folder>\n")
-		file:write("		<name>AcfTrack</name>\n")
-		file:write("			<Placemark>\n")	
-		file:write("				<name>Aircraft</name>\n")
-		file:write("				<styleUrl>#multiTrack</styleUrl>\n")
-		file:write("				<gx:Track>\n")
-		file:write("				<altitudeMode>absolute</altitudeMode>\n")
-		
-		for k,v in pairs(mem[m]["track"]) do
-			local line  = string.format("				<when>%d-%02d-%02dT%02d:%02d:%02dZ</when>\n", year, month, day, v["hr"], v["min"], v["sec"])
-			file:write(line)
-		end
-		for k,v in pairs(mem[m]["track"]) do
-			file:write("				<gx:coord>" .. v["lon"] .. " " .. v["lat"] .. " " .. v["alt"] .. "</gx:coord>\n")
-		end
-		file:write("					<ExtendedData>\n")
-		file:write("						<SchemaData schemaUrl=\"#schema\">\n")
-		file:write("							<gx:SimpleArrayData name=\"speed\">\n")
-		for k,v in pairs(mem[m]["track"]) do
-			file:write("								<gx:value>" .. v["spd"] .. " km/h" .. "</gx:value>\n")
-		end	
-		file:write("							</gx:SimpleArrayData>\n")
-		file:write("							<gx:SimpleArrayData name=\"payload\">\n")
-		for k,v in pairs(mem[m]["track"]) do
-			file:write("								<gx:value>" .. round2(v["payload"], 1) .. " kg" .. "</gx:value>\n")
-		end	
-		file:write("							</gx:SimpleArrayData>\n")
-		file:write("							<gx:SimpleArrayData name=\"area\">\n")
-		for k,v in pairs(mem[m]["track"]) do
-			file:write("								<gx:value>" .. round2(v["area"], 2) .. " ha" .. "</gx:value>\n")
-		end	
-		file:write("							</gx:SimpleArrayData>\n")
-		file:write("						</SchemaData>\n")
-		file:write("					</ExtendedData>\n")
-		file:write("				</gx:Track>\n")
-		file:write("			</Placemark>\n")
-		file:write("		</Folder>\n")
-		file:write("	</Document>\n")	
-		file:write("</kml>\n")
-		file:close()
 	end
 	
 	mem = clear_tbl(mem)
@@ -2055,7 +2061,7 @@ function aircraft_unload()
 	end
 
 	file:close()
-
+	
 end
 
 

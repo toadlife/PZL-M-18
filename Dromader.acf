@@ -1675,7 +1675,7 @@ P _blad/0/_locked/9,9 0
 P _blad/0/_locked/i_count 20
 P _blad/0/_locked/j_count 18
 P _blad/0/_part_phi 0.000000000
-P _blad/0/_part_psi 2.000000000
+P _blad/0/_part_psi 1.500000000
 P _blad/0/_part_specs_eq 0
 P _blad/0/_part_specs_invis 1
 P _blad/0/_part_specs_rmod 1
@@ -4760,7 +4760,7 @@ P _engn/0/_exhaust_os_xyz/0 2.900000095
 P _engn/0/_exhaust_os_xyz/1 -0.349999994
 P _engn/0/_exhaust_os_xyz/2 3.099999905
 P _engn/0/_exhaust_os_xyz/count 3
-P _engn/0/_part_psi 2.000000000
+P _engn/0/_part_psi 1.500000000
 P _engn/0/_part_the -1.500000000
 P _engn/0/_part_x 0.000000000
 P _engn/0/_part_y 0.000000000
@@ -10778,11 +10778,11 @@ P _wing/10/_inc_vect/9 0
 P _wing/10/_inc_vect/count 10
 P _wing/10/_incid_chrd_inc 0.000000000
 P _wing/10/_incid_full_up 0.000000000
-P _wing/10/_incidence/0 -2.299999952
-P _wing/10/_incidence/1 -2.299999952
-P _wing/10/_incidence/2 -2.299999952
-P _wing/10/_incidence/3 -2.299999952
-P _wing/10/_incidence/4 -2.299999952
+P _wing/10/_incidence/0 -1.799999952
+P _wing/10/_incidence/1 -1.799999952
+P _wing/10/_incidence/2 -1.799999952
+P _wing/10/_incidence/3 -1.799999952
+P _wing/10/_incidence/4 -1.799999952
 P _wing/10/_incidence/5 0.000000000
 P _wing/10/_incidence/6 0.000000000
 P _wing/10/_incidence/7 0.000000000
@@ -33348,7 +33348,7 @@ P acf/_feathered_pitch 7.500000000
 P acf/_ff_rat_idle_JET 0.100000001
 P acf/_ff_rat_idle_PRP 0.050000001
 P acf/_ff_rat_idle_turbo 0.050000001
-P acf/_file_writer_version 121004
+P acf/_file_writer_version 121006
 P acf/_fixed_max/0 250.000000000
 P acf/_fixed_max/1 132.300003052
 P acf/_fixed_max/2 361.500000000

@@ -357,6 +357,8 @@ function flight_start()
 	inst_light_fuse = 0
 	inst_light_fail = 6
 	kill_gpu = 1
+	gpu_override = 1
+	gpu_volts = 24
 	if startup_running == 1 then
 		bat_sel = 0
 		batt = 1
@@ -372,8 +374,6 @@ function flight_start()
 		fuel_fuse = 1
 		elec_hyd = 1
 		bus_load_add = 10
-		gpu_override = 1
-		gpu_volts = 24
 	else
 		bat_sel = 1
 		batt = 0
