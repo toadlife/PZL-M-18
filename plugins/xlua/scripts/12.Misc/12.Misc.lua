@@ -302,9 +302,9 @@ function brake_cmd_after(phase, duration)
 		else
 			if rud_ratio > 0 then
 				right_brake = math.min(1, parking_brake_ratio + rud_ratio/2)
-				left_brake = parking_brake_ratio --math.max(0, parking_brake_ratio - rud_ratio/2)
+				left_brake = parking_brake_ratio 
 			elseif rud_ratio < 0 then
-				right_brake = parking_brake_ratio --	math.max(0, parking_brake_ratio + rud_ratio/2)
+				right_brake = parking_brake_ratio
 				left_brake = math.min(1, parking_brake_ratio + rud_ratio/-2)
 			end
 		end
@@ -380,12 +380,8 @@ function cmd_chocks_tog(phase, duration)
 	if phase == 0 and spd_dr< 0.1 then
 		if chocks == 0 then
 			chocks = 1
-			--parking_brake_ratio = 1
 		else
 			chocks = 0
-			--if left_brake == 0 and right_brake == 0 then
-			--	parking_brake_ratio = 0
-			--end
 		end
 	end
 end
@@ -709,7 +705,6 @@ function after_physics()
 		vx = 0
 		vy = 0
 		vz = 0
-		--parking_brake_ratio = 1	
 	end
 	
 	if has_crashed == 1 and gear_retract == 0 then --workaround gear does not collapse on chrash although collapse drefs are 6

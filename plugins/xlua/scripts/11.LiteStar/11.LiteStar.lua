@@ -1766,10 +1766,8 @@ function generate_kml()
 		mem[idx]["swath_tbl"] = deepcopy(swath_tbl)
 		mem[idx]["track"] = deepcopy(track)
 		mem[idx]["swath_sequence_tbl"] = deepcopy(swath_sequence_tbl)
-	end
-	local separator = get_path_separator()
-	local path = script_path()
-	print(path)
+	end	
+
 	for m=1, #mem do		
 		local year = os.date("%Y")
 		local filename = "Output/LiteStarIV".. "_" .. os.date("%Y-%m-%d-%H-%M") .. "_job_" .. m .. ".kml"
@@ -1779,7 +1777,7 @@ function generate_kml()
 		
 	
 		file:write([[
-	<?xml version="1.0" encoding="UTF-8"?>
+<?xml version="1.0" encoding="UTF-8"?>
 	<kml xmlns="http://www.opengis.net/kml/2.2" xmlns:gx="http://www.google.com/kml/ext/2.2">
 		<Document>
 			<name>LiteStar IV GPS</name>
@@ -1962,9 +1960,9 @@ function generate_kml()
 				file:write("				</Point>\n")	
 				file:write("			</Placemark>\n")
 				end
+
 			for k,v in pairs(mem[m]["swath_tbl"]) do
 				file:write("		<Placemark>\n")
-
 				file:write("			<name>Swatht " .. k .. "|Num in sequence " .. mem[m]["swath_sequence_tbl"][k] .. "</name>\n")
 				file:write("			<styleUrl>#swathline</styleUrl>\n")	
 				file:write("				<LineString>\n")
