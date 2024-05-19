@@ -33348,7 +33348,7 @@ P acf/_feathered_pitch 7.500000000
 P acf/_ff_rat_idle_JET 0.100000001
 P acf/_ff_rat_idle_PRP 0.050000001
 P acf/_ff_rat_idle_turbo 0.050000001
-P acf/_file_writer_version 121006
+P acf/_file_writer_version 121008
 P acf/_fixed_max/0 250.000000000
 P acf/_fixed_max/1 132.300003052
 P acf/_fixed_max/2 361.500000000
@@ -33812,7 +33812,7 @@ P acf/_max_CHT 235.000000000
 P acf/_max_EGT 664.000000000
 P acf/_max_ITT 664.000000000
 P acf/_max_MP_limit 41.340000153
-P acf/_max_atc_alt_ft 0.000000000
+P acf/_max_atc_alt_ft 1E4
 P acf/_max_bat_amp 120.000000000
 P acf/_max_bat_temp 10.000000000
 P acf/_max_gen_amp0 120.000000000
@@ -34425,7 +34425,7 @@ P acf/_vect_min_nace 0.000000000
 P acf/_vect_power_aft 1.000000000
 P acf/_vect_power_for 1.000000000
 P acf/_vect_rate 15.000000000
-P acf/_version 1.12-XP12
+P acf/_version 1.2-XP12
 P acf/_vnav_descend_auto_arm 0
 P acf/_vor_mode_has_dead_reckon 0
 P acf/_vvi_but_adjusts_pitch 0
