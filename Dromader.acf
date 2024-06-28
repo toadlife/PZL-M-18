@@ -33348,7 +33348,7 @@ P acf/_feathered_pitch 7.500000000
 P acf/_ff_rat_idle_JET 0.100000001
 P acf/_ff_rat_idle_PRP 0.050000001
 P acf/_ff_rat_idle_turbo 0.050000001
-P acf/_file_writer_version 121008
+P acf/_file_writer_version 121016
 P acf/_fixed_max/0 250.000000000
 P acf/_fixed_max/1 132.300003052
 P acf/_fixed_max/2 361.500000000
@@ -33465,8 +33465,8 @@ P acf/_flaps_are_infinite 1
 P acf/_flaps_dial_a_flap 0
 P acf/_flaps_johnson_bar 0
 P acf/_flaps_with_gear_EQ 0
-P acf/_flaps_with_stall_rat_0 1.000000000
-P acf/_flaps_with_stall_rat_1 1.000000000
+P acf/_flaps_with_stall_rat_0 0.000000000
+P acf/_flaps_with_stall_rat_1 0.000000000
 P acf/_flaps_with_vec_EQ 0
 P acf/_flaps_with_vector 0
 P acf/_flare_max 0
@@ -34463,7 +34463,6 @@ P acf/_wheel_s2 0.550999999
 P acf/_wheel_t1 0.254999995
 P acf/_wheel_t2 0.296000004
 P acf/_windshield_eff_factor 1.000000000
-P acf/_windshield_scratchy 0
 P acf/_wing_damp_rat 1.500000000
 P acf/_wing_frac_fuel 0.500000000
 P acf/_wing_frac_mass 0.250000000
